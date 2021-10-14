@@ -1,4 +1,4 @@
-# wcd
+# Wallpaper Changing Daemon (wcd)
 Wallpaper Changing Daemon reminds me of mpd, but it manages wallpapers instead of music.
 
 It comes with wcc (not to be confused with iwcc) too, which is a CLI client app, used to interact with the Daemon.
