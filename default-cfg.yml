@@ -1,0 +1,7 @@
+socket_path: $TMPDIR/wcd/socket
+wallpapers_directory: /usr/share/backgrounds/
+wallpaper_cmd: xwallpaper --zoom
+time_auto_next: 300
+randomize_wallpapers: true
+max_history: 30
+
