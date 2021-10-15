@@ -1,5 +1,6 @@
 import asyncio as aio
 import argparse as ap
+import sys
 import os
 
 from pathlib import Path
@@ -29,7 +30,12 @@ async def main(command: str, socket: Optional[Path]) -> None:
         os.environ["TMPDIR"] = "/tmp"
     socket_path = socket or os.path.expandvars(get_cfg()["socket_path"])
 
-    r, w = await aio.open_unix_connection(socket_path)
+    try:
+        r, w = await aio.open_unix_connection(socket_path)
+    except ConnectionRefusedError:
+        print(f"Couldn't connect to a wcd over '{socket_path}'")
+        return
+
     w.write(ConnectionMode.ONE_SHOT.to_bytes(4, byteorder="big"))
     w.write(DaemonEvent[command.upper()].to_bytes(4, byteorder="big"))
     await w.drain()
