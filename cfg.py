@@ -3,7 +3,7 @@ import yaml
 import os
 
 from types import MappingProxyType
-from typing import Optional, Any
+from typing import Optional, Any, cast
 from pathlib import Path
 
 
@@ -62,9 +62,9 @@ def get_cfg() -> dict[str, Any]:
 
 def save_cfg(path: Optional[Path]=None) -> None:
 
-    if _cfg_data is None:
+    if path is _cfg_data is None:
         raise RuntimeError("Tried saving a config without loading it first")
 
-    with open(path or _cfg_path, "w") as file:
+    with open(cast(Path, path or _cfg_path), "w") as file:
         yaml.dump(_cfg_data, file, Dumper=yaml.CDumper)
     
