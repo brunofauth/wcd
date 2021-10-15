@@ -2,20 +2,27 @@ import asyncio as aio
 import random
 import os
 
-from typing import Iterator, Sequence, Any
+from mimetypes import guess_type
+from typing import Iterator, Sequence, Any, Optional
 
 from cfg import get_cfg
 
 
-def _load_wallpapers() -> list[str]:
-    return os.listdir(get_cfg()["wallpapers_directory"])
+def _is_img(file_type: Optional[str]) -> bool:
+    return file_type is not None and file_type.startswith("image/")
+
+
+def _load_wallpapers() -> Iterator[str]:
+    for entry in os.scandir(get_cfg()["wallpapers_directory"]):
+        if entry.is_file() and _is_img(guess_type(entry.path)[0]):
+            yield entry.name
 
 
 class WallpaperCache:
 
     def __init__(self, max_history: int=30, randomize: bool=True) -> None:
 
-        self._wallpapers: list[str] = _load_wallpapers()
+        self._wallpapers: list[str] = list(_load_wallpapers())
         self.randomize: bool = randomize
         if randomize:
             self.shuffle()
@@ -30,7 +37,7 @@ class WallpaperCache:
         return tuple(self._wallpapers)
 
     def refresh(self) -> None:
-        self._wallpapers = _load_wallpapers()
+        self._wallpapers = list(_load_wallpapers())
 
     def shuffle(self) -> None:
         random.shuffle(self._wallpapers)
@@ -65,6 +72,9 @@ class WallpaperCache:
     @property
     def prev_wp(self) -> str:
         self._curr_wp = self._history.pop()
+        self._index -= 1
+        if self._index < 0:
+            self._index = len(self._wallpapers) - 1
         return self.curr_wp
 
 
