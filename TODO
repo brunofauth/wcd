@@ -1,5 +1,5 @@
-add proper logging to wcd
 add systemd unit
 package properly
 separate better wcc, wcd and api
+add better CLI to wcc
 
