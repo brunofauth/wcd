@@ -1,8 +1,5 @@
 import asyncio as aio
 
-from enum import IntEnum, auto
-from mimetypes import guess_type
-
 from cfg import get_cfg
 from event import DaemonEvent, register_event
 from wp_cache import WALLPAPER_CACHE
