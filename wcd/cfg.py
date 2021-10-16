@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 def _load_default_cfg() -> MappingProxyType[str, Any]:
-    with open("default-cfg.yml") as file:
+    with open(Path(__file__).parent / "default-cfg.yml") as file:
         return MappingProxyType(yaml.load(file, Loader=yaml.CLoader))
 
 
@@ -42,7 +42,7 @@ def load_cfg(path: Optional[Path]=None) -> dict[str, Any]:
     if not path.parent.exists():
         os.makedirs(path.parent, exist_ok=True)
     if not path.exists():
-        shutil.copyfile("default-cfg.yml", path)
+        shutil.copyfile(Path(__file__).parent / "default-cfg.yml", path)
         return DEFAULT_CFG.copy()
 
     with open(path) as file:
