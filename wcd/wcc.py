@@ -6,8 +6,8 @@ import os
 from pathlib import Path
 from typing import Optional
 
-from cfg import get_cfg
-from event import ConnectionMode, DaemonEvent
+from .cfg import get_cfg
+from .event import ConnectionMode, DaemonEvent
 
 
 def get_args() -> ap.Namespace:

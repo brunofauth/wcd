@@ -1,8 +1,8 @@
 import asyncio as aio
 
-from cfg import get_cfg
-from event import DaemonEvent, register_event
-from wp_cache import WALLPAPER_CACHE
+from .cfg import get_cfg
+from .event import DaemonEvent, register_event
+from .wp_cache import WALLPAPER_CACHE
 
 
 async def _set_wallpaper(wp: str) -> None:

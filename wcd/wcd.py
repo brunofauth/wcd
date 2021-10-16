@@ -6,9 +6,9 @@ import os
 from pathlib import Path
 from typing import Awaitable, Callable, TypeVar
 
-from event import ConnectionMode, DaemonEvent, fire_event
-from funcs import wp_cycler
-from cfg import get_cfg, save_cfg
+from .event import ConnectionMode, DaemonEvent, fire_event
+from .funcs import wp_cycler
+from .cfg import get_cfg, save_cfg
 
 
 LOGGER = logging.getLogger(__name__)

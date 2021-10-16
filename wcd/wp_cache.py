@@ -5,7 +5,7 @@ import os
 from mimetypes import guess_type
 from typing import Iterator, Sequence, Any, Optional
 
-from cfg import get_cfg
+from .cfg import get_cfg
 
 
 def _is_img(file_type: Optional[str]) -> bool:

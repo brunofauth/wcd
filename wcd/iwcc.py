@@ -1,7 +1,7 @@
 import asyncio as aio
 import sys
 
-from event import ConnectionMode
+from .event import ConnectionMode
 
 
 async def print_recvd_msgs(r: aio.StreamReader) -> None:
