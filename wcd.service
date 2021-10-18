@@ -3,7 +3,8 @@ Description=Wallpaper Changer Daemon
 
 [Service]
 ExecStart=/home/<username>/.local/bin/wcd
-# This works if you installed wcd with pipx
+# This works if you installed wcd with pipx, as long as you swap <username> for your own
+# Otherwise you can change this line to whatever the shell tells you when you run "which wcd"
 
 [Install]
 WantedBy=default.target
