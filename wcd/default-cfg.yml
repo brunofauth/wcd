@@ -1,3 +1,4 @@
+# Path to the unix socket over which wcd will communicate with its clients
 socket_path: $TMPDIR/wcd/socket
 
 # Where to look for wallpapers
