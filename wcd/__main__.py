@@ -1,10 +1,4 @@
-import asyncio as aio
-
-from .wcd import main, LOGGER
+from .wcd import main
 
 
-try:
-    aio.run(main())
-except KeyboardInterrupt:
-    LOGGER.info("Received 'KeyboardInterrupt'. Quitting...")
-
+aio.run(main())
