@@ -1,0 +1,8 @@
+[Unit]
+Description=Wallpaper Changer Daemon
+
+[Service]
+ExecStart=/usr/bin/env python -m wcd
+
+[Install]
+WantedBy=default.target
