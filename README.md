@@ -45,3 +45,6 @@ And that's fine, but I don't like that approach because it's too limiting. What 
     shift + XF86Audio{Play,Next,Prev}
         wcc {toggle_cycle,next,prev}
 
+## TODO
+* aur package
+
