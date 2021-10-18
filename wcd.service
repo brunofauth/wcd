@@ -2,7 +2,7 @@
 Description=Wallpaper Changer Daemon
 
 [Service]
-ExecStart=/usr/bin/env python -m wcd
+ExecStart=/home/bruno/.local/bin/wcd
 
 [Install]
 WantedBy=default.target

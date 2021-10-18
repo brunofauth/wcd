@@ -10,10 +10,11 @@ Wallpaper Changing Daemon reminds me of mpd, but it manages wallpapers instead o
 * You need to have a program which will do the wallpaper switching (such as `xwallpaper`, `feh` or `nitrogen`) installed on your machine.
 
 # Installation
-1. Install the package: either `pip install wcd` or clone this repo and run `setup.py`
-2. Run the package once, to generate config files. If you wan't, you can point to where you want your config to be stored in by exporting an evironment variable named `WCD_CFG`, like this:
+1. Install the package with [pipx](https://github.com/pypa/pipx): `pipx install wcd` or clone this repo and run `setup.py`
+    * If you use Arch based distros, you can install pipx as such: `sudo pacman -S python-pipx`
+2. Run the package once, to generate config files. If you want to, you can point to where you want your config to be stored in by exporting an evironment variable named `WCD_CFG`, like this:
     * `export WCD_CFG="path/to/config" # be sure to add this line to your ~/.profile or ~/.bashrc or whatever shell you use`
-    * `python -m wcd`
+    * `wcd`
 3. Load the config file (defaults to `~/.config/wcd/cfg.yml`) on your text editor and change the `wallpaper_cmd` entry to whatever suits you best.
 4. Kill the previous running instance if you haven't already and, then, restart the program.
 5. You're all set, enjoy.
@@ -26,9 +27,9 @@ Wallpaper Changing Daemon reminds me of mpd, but it manages wallpapers instead o
 5. To immediatly start wcd, run: `systemctl start --user wcd.service`
 
 # Communicating with the wcd
-`python -m wcd.wcc --help`
+* Run: `wcc --help`, it stands for Wallpaper Changing Client and comes bundled with `wcd`
 
 # sxhkd keybindings for wcc (append to your sxhkdrc)
     shift + XF86Audio{Play,Next,Prev}
-        python -m wcd.wcc {toggle_cycle,next,prev}
+        wcc {toggle_cycle,next,prev}
 
