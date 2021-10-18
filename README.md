@@ -33,9 +33,10 @@ And that's fine, but I don't like that approach because it's too limiting. What 
 ### Installing and Running as systemd Service
 1. Clone this repo: `git clone https://github.com/brunofauth/wcd.git`
 2. cd into it: `cd wcd`
-3. Copy the unit file to your systemd config folder: `cp wcd.service ~/.config/systemd/user/wcd.service`
-4. To enable starting wcd on login, run: `systemctl enable --user wcd.service`
-5. To immediatly start wcd, run: `systemctl start --user wcd.service`
+3. edit `wcd.service` to include whatever you get when you run `which wcd`
+4. Copy the unit file to your systemd config folder: `cp wcd.service ~/.config/systemd/user/wcd.service`
+5. To enable starting wcd on login, run: `systemctl enable --user wcd.service`
+6. To immediatly start wcd, run: `systemctl start --user wcd.service`
 
 ## Communicating with the wcd
 * Run: `wcc --help`, it stands for Wallpaper Changing Client and comes bundled with `wcd`
