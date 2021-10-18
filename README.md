@@ -10,7 +10,7 @@ Wallpaper Changing Daemon reminds me of mpd, but it manages wallpapers instead o
 * You need to have a program which will do the wallpaper switching (such as `xwallpaper`, `feh` or `nitrogen`) installed on your machine.
 
 ## Why shouldn't I just use a shell script instead
-Lots of people use shell scripts in which they have shell scripts like this:
+Lots of people use shell scripts like this, to manage their wallpapers:
 
     while true; do
         for file in "$(find /usr/share/backgrounds/ -type f | shuf)"; do
