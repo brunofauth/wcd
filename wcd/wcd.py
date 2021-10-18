@@ -63,7 +63,7 @@ async def on_client_connected(r: aio.StreamReader, w: aio.StreamWriter) -> None:
     LOGGER.info(f"'{peer_name}' disconnected")
 
 
-async def main():
+async def wcd():
 
     if "TMPDIR" not in os.environ:
         os.environ["TMPDIR"] = "/tmp"
@@ -80,10 +80,13 @@ async def main():
         await server.serve_forever()
 
 
-
-if __name__ == "__main__":
+def main() -> None:
     try:
         aio.run(main())
     except KeyboardInterrupt:
         LOGGER.info("Received 'KeyboardInterrupt'. Quitting...")
+
+
+if __name__ == "__main__":
+    main()
 

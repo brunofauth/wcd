@@ -24,7 +24,7 @@ def get_args() -> ap.Namespace:
 
 
 # tbf this didnt need to be async, but ive never used synchronous unix sockets
-async def main(command: str, socket: Optional[Path]) -> None:
+async def wcc(command: str, socket: Optional[Path]) -> None:
 
     if "TMPDIR" not in os.environ:
         os.environ["TMPDIR"] = "/tmp"
@@ -43,6 +43,10 @@ async def main(command: str, socket: Optional[Path]) -> None:
     print((await r.read()).decode("utf-8"))
 
 
-if __name__ == "__main__":
+def main() -> None:
     aio.run(main(**vars(get_args())))
+
+
+if __name__ == "__main__":
+    main()
 

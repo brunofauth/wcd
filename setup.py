@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     setup(
         name="wcd",
-        version="0.0.1",
+        version="0.0.0a1",
         license="MIT",
 
         author="Bruno Fauth",
@@ -18,6 +18,14 @@ if __name__ == "__main__":
         long_description_content_type="text/markdown",
 
         packages=["wcd"],
+        install_requires=["coloredlogs>=15.0.0", "PyYAML>=6.0"],
+
+        entry_points={
+            "console_scripts": [
+                "wcd=wcd.wcd:main",
+                "wcc=wcd.wcc:main"
+            ]
+        }
 
         url="http://github.com/brunofauth/wcd",
         project_urls={"Bug Tracker": "https://github.com/brunofauth/wcd/issues"},
