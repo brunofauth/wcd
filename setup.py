@@ -25,7 +25,7 @@ if __name__ == "__main__":
                 "wcd=wcd.wcd:main",
                 "wcc=wcd.wcc:main"
             ]
-        }
+        },
 
         url="http://github.com/brunofauth/wcd",
         project_urls={"Bug Tracker": "https://github.com/brunofauth/wcd/issues"},
