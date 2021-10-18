@@ -1,7 +1,10 @@
 [Unit]
-Description=Wallpaper Changer Daemon
+Description=Wallpaper Changing Daemon
 
 [Service]
+# Environment=WCD_CFG=path/to/some/cfg.yml
+# Uncomment the line above to set a WCD_CFG env var
+
 ExecStart=/home/<username>/.local/bin/wcd
 # This works if you installed wcd with pipx, as long as you swap <username> for your own
 # Otherwise you can change this line to whatever the shell tells you when you run "which wcd"
