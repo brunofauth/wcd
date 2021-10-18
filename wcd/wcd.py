@@ -82,7 +82,7 @@ async def wcd():
 
 def main() -> None:
     try:
-        aio.run(main())
+        aio.run(wcd())
     except KeyboardInterrupt:
         LOGGER.info("Received 'KeyboardInterrupt'. Quitting...")
 

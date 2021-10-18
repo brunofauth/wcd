@@ -44,7 +44,7 @@ async def wcc(command: str, socket: Optional[Path]) -> None:
 
 
 def main() -> None:
-    aio.run(main(**vars(get_args())))
+    aio.run(wcc(**vars(get_args())))
 
 
 if __name__ == "__main__":
