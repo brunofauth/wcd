@@ -47,5 +47,5 @@ And that's fine, but I don't like that approach because it's too limiting. What 
 
 ## TODO
 * aur package
-* use less memory
+* use less memory (tracemalloc says it's fine, but htop disagrees)
 

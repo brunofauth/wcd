@@ -86,6 +86,10 @@ def main() -> None:
     except KeyboardInterrupt:
         LOGGER.info("Received 'KeyboardInterrupt'. Quitting...")
 
+    if os.environ.get("WCD_TRACEMALLOC", None) == "1":
+        from .trace import print_snapshots
+        print_snapshots()
+
 
 if __name__ == "__main__":
     main()

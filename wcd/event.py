@@ -3,6 +3,9 @@ import asyncio as aio
 from enum import IntEnum, auto
 from typing import Callable, Awaitable, Union
 
+if os.environ.get("WCD_TRACEMALLOC", None) == "1":
+    from .trace import take_snapshot
+
 
 class ConnectionMode(IntEnum):
     ONE_SHOT = 99
@@ -33,5 +36,7 @@ def register_event(event_type: Union[DaemonEvent, int]) -> Callable[[EventHandle
 
 def fire_event(event_type: Union[DaemonEvent, int], r: aio.StreamReader, w: aio.StreamWriter) -> Awaitable:
     tasks = [event(r, w) for event in _events[event_type - 1]]
+    if os.environ.get("WCD_TRACEMALLOC", None) == "1":
+        take_snapshot()
     return aio.gather(*tasks)
 
