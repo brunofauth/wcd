@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     setup(
         name="wcd",
-        version="0.0.0a6",
+        version="0.0.0a7",
         license="MIT",
 
         author="Bruno Fauth",
