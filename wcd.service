@@ -5,9 +5,13 @@ Description=Wallpaper Changing Daemon
 # Environment=WCD_CFG=path/to/some/cfg.yml
 # Uncomment the line above to set a WCD_CFG env var
 
+Environment=DISPLAY=:0
+# The line above is needed because, I think, wcd may get started before xorg
+
 ExecStart=/home/<username>/.local/bin/wcd
 # This works if you installed wcd with pipx, as long as you swap <username> for your own
 # Otherwise you can change this line to whatever the shell tells you when you run "which wcd"
 
 [Install]
 WantedBy=default.target
+
