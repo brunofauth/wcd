@@ -46,6 +46,6 @@ And that's fine, but I don't like that approach because it's too limiting. What 
         wcc {toggle_cycle,next,prev}
 
 ## TODO
-* aur package
+* update pkgbuild to aur, along with the systemd service
 * use less memory (tracemalloc says it's fine, but htop disagrees)
 

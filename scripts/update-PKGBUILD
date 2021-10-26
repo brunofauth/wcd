@@ -1,0 +1,11 @@
+#! /bin/sh
+
+cd "$(dirname "$0")/.." || exit 1
+
+version="$(git describe --tags | cut -c 2-)"
+sed -i "s|^pkgver=.\+$|pkgver='$version'|" PKGBUILD
+pkg_source="./dist/wcd-$version.tar.gz"
+sed -i "s|^sha256sums=.\+$|sha256sums=('$(sha256sum "$pkg_source" | cut -d ' ' -f 1)')|" PKGBUILD
+
+echo "Changed 'pkgver' to $version and updated 'sha256sums'."
+
